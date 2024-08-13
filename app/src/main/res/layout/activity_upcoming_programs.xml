@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Upcoming_Programs">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/SiyakhulaBanner" />
+
+    <TextView
+        android:id="@+id/textViewHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="First Thousand Days"
+        android:textColor="#90DB82"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="We provide a biopsychosocial support program to caregivers and infants. This program focuses on the first thousand days of a child’s life and their road to health as well as providing support to the primary caregiver. The first Thousand Days program also has a specialized focus on fathers, in partnership with Sikunye." />
+    <TextView
+        android:id="@+id/textView2Heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#90DB82"
+        android:text="Family Support Program"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="We provide a biopsychosocial support program to caregivers and infants. This program focuses on the first thousand days of a child’s life and their road to health as well as providing support to the primary caregiver. The first Thousand Days program also has a specialized focus on fathers, in partnership with Sikunye." />
+
+</LinearLayout>
