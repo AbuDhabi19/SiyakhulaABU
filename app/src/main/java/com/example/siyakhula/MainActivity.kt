@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         val logout: Button = findViewById(R.id.LogoutBtn)
         logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(applicationContext, Login::class.java))
+            startActivity(Intent(applicationContext, Login::class.java)) //Login class
             finish()
         }
     }
