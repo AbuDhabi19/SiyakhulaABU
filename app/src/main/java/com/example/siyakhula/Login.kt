@@ -69,7 +69,7 @@ class Login : AppCompatActivity() {
                 finish()
             } else if (documentSnapshot.getString("isUser") != null) {
                 // User is a normal user
-                startActivity(Intent(applicationContext, MainActivity::class.java))
+                startActivity(Intent(applicationContext, Dashboard::class.java))
                 finish()
             }
         }.addOnFailureListener { exception ->
@@ -91,7 +91,7 @@ class Login : AppCompatActivity() {
         super.onStart()
         if (fAuth.currentUser != null) {
             // If user is already logged in, navigate to MainActivity
-            startActivity(Intent(applicationContext, MainActivity::class.java))
+            startActivity(Intent(applicationContext, Dashboard::class.java))
             finish()
         }
     }

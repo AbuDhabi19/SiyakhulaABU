@@ -65,9 +65,9 @@ class Register : AppCompatActivity() {
 
                         df.set(userInfo).addOnSuccessListener {
                             if (isAdmin.isChecked) {
-                                startActivity(Intent(applicationContext, Admin::class.java))
+                                startActivity(Intent(applicationContext, Admin::class.java)) //Goes to admin if admin is checked
                             } else {
-                                startActivity(Intent(applicationContext, MainActivity::class.java))
+                                startActivity(Intent(applicationContext, Login::class.java)) //Goes to the Login page if Client if checked
                             }
                             finish()
                         }
