@@ -10,7 +10,7 @@
         android:id="@+id/bannerImage"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         android:src="@drawable/siyakhulabanner"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
