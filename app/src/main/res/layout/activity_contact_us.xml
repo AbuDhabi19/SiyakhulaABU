@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register">
+
+    <ImageView
+        android:id="@+id/bannerImage"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/siyakhulabanner"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bannerImage">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/contactingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Our contact details "
+                android:textStyle="bold"
+                android:textColor="#744B28"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/returnContactBtn"
+                android:layout_width="56dp"
+                android:layout_height="53dp"
+                android:backgroundTint="#55AA55"
+                android:text="X"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="331dp"
+                tools:layout_editor_absoluteY="2dp" />
+
+            <TextView
+                android:id="@+id/phoneUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="Phone Us"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.337"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contactingText" />
+
+            <TextView
+                android:id="@+id/donationDetails"
+                android:layout_width="170dp"
+                android:layout_height="61dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:lines="7"
+                android:text="Phone: 021-788-1171 (O) \nMobile: 084 862 5778 "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phoneUs" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="Physical Address"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.337"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/donationDetails" />
+
+            <TextView
+                android:id="@+id/addressDetails"
+                android:layout_width="170dp"
+                android:layout_height="61dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:lines="7"
+                android:text="Phone: 021-788-1171 (O) \nMobile: 084 862 5778 "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address" />
+
+            <TextView
+                android:id="@+id/cfollowUsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Follow Us"
+                android:textStyle="bold"
+                android:textColor="#744B28"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addressDetails" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/linkImages"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cfollowUsText">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageButton
+                        android:id="@+id/contactFacebookIBtn"
+                        android:contentDescription="Facebook Logo"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/facelogo"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.118"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteY="25dp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/donateTextContactPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Support us by donating"
+                android:textStyle="bold"
+                android:textColor="#744B28"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linkImages" />
+
+            <Button
+                android:id="@+id/contactDonateBtn"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#55AA55"
+                android:text="Donate"
+                android:padding="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/donateTextContactPage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
