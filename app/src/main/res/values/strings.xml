@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Siyakhula</string>
     <string name="back_button_desc">Go back</string>
+    <string name="facebook_logo_desc" />
+    <string name="youtube_logo_desc" />
+    <string name="instagram_logo_desc" />
 </resources>

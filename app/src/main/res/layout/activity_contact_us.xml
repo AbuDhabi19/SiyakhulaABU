@@ -137,26 +137,40 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cfollowUsText">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- Use a LinearLayout to align items horizontally -->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
                     <ImageButton
-                        android:id="@+id/contactFacebookIBtn"
-                        android:contentDescription="Facebook Logo"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/facelogo"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.118"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="MissingConstraints"
-                        tools:layout_editor_absoluteY="25dp" />
+                        android:id="@+id/instagram_button"
+                        android:layout_width="79dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/instagram_logo_desc"
+                        android:src="@drawable/instagramlogo" />
 
+                    <ImageButton
+                        android:id="@+id/youtube_button"
+                        android:layout_width="79dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/youtube_logo_desc"
+                        android:src="@drawable/youtubelogo" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageButton
+                        android:id="@+id/facebook_button"
+                        android:layout_width="79dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/facebook_logo_desc"
+                        android:src="@drawable/facebooklogo" />
+
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:id="@+id/donateTextContactPage"

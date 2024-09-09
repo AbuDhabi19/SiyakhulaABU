@@ -25,11 +25,11 @@ class Contact_Us : AppCompatActivity() {
         }
 
         //Saving this block of code to use for the image buttons
-      /*  val url = "https://account.stewardship.org.uk/gift/start/20327069?donationType=OneOff"
+        val url = "https://account.stewardship.org.uk/gift/start/20327069?donationType=OneOff"
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(url)
         startActivity(intent)
-        */
+
 
         returnContactBtn.setOnClickListener{
             startActivity(Intent(this , Dashboard::class.java))
