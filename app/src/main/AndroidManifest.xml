@@ -21,14 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-< master
+
         <activity android:name=".Admin" />
         <activity android:name=".Register" />
-        <activity android:name=".MainActivity"/>
         <activity android:name=".Dashboard"/>
         <activity android:name=".Donations"/>
 
-master/> 
+
     </application>
 
 </manifest>
