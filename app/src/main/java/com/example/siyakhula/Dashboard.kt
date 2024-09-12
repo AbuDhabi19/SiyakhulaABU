@@ -27,25 +27,25 @@ class Dashboard : AppCompatActivity() {
         signoutButton = findViewById(R.id.signoutButton)
 
         //Setting up click listeners for each button below(Undo the comments for the page that you added)
-        //upcomingprogramsButton.setOnClickListener{
-        //    startActivity(Intent(this , UpcomingPrograms::class.java))
-        //}
+        upcomingprogramsButton.setOnClickListener{
+            startActivity(Intent(this , Upcoming_Programs::class.java))
+        }
 
         donationsButton.setOnClickListener{
             startActivity(Intent(this , Donations::class.java))
         }
 
-        //volunteerButton.setOnClickListener{
-        //    startActivity(Intent(this , VolunteerPage::class.java))
-        //}
+        volunteerButton.setOnClickListener{
+            startActivity(Intent(this , Volunteer::class.java))
+        }
 
-        //aboutusButton.setOnClickListener{
-        //    startActivity(Intent(this , AboutUsPage::class.java))
-        //}
+        aboutusButton.setOnClickListener{
+            startActivity(Intent(this , AboutUs::class.java))
+        }
 
-        //contactusButton.setOnClickListener{
-        //    startActivity(Intent(this , ContactUsPage::class.java))
-        //}
+        contactusButton.setOnClickListener{
+            startActivity(Intent(this , Contact_Us::class.java))
+        }
 
         signoutButton.setOnClickListener{
         // Sign out the user and return to login screen

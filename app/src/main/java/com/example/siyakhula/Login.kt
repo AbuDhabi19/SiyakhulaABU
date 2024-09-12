@@ -41,36 +41,40 @@ class Login : AppCompatActivity() {
             if (valid) {
                 fAuth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
                     .addOnSuccessListener { authResult: AuthResult ->
-                        Toast.makeText(this, "Logged in successfully.", Toast.LENGTH_SHORT).show()
-                        checkUserAccessLevel(authResult.user?.uid ?: "")
+                        if (authResult.user?.isEmailVerified == true) {
+                            Toast.makeText(this, "Logged in successfully.", Toast.LENGTH_SHORT).show()
+                            checkUserAccessLevel(authResult.user?.uid ?: "")
+                        } else {
+                            Toast.makeText(this, "Please verify your email address before logging in.", Toast.LENGTH_SHORT).show()
+                            fAuth.signOut()
+                        }
                     }
                     .addOnFailureListener { exception ->
                         Toast.makeText(this, "Login failed: ${exception.message}", Toast.LENGTH_SHORT).show()
-
                     }
             }
         }
 
         gotoRegister.setOnClickListener {
-            // Navigate to Register activity
             startActivity(Intent(this, Register::class.java))
         }
     }
 
     private fun checkUserAccessLevel(uid: String) {
         val df: DocumentReference = fStore.collection("Users").document(uid)
-        // Extract the data from the document
         df.get().addOnSuccessListener { documentSnapshot ->
             Log.d("TAG", "onSuccess: ${documentSnapshot.data}")
-            // Identify the user access level
-            if (documentSnapshot.getString("isAdmin") != null) {
-                // User is admin
-                startActivity(Intent(applicationContext, Admin::class.java))
+            val isAdmin = documentSnapshot.get("isAdmin") as? Boolean ?: false
+            val isUser = documentSnapshot.get("isUser") as? Boolean ?: false
+
+            if (isAdmin && email.text.toString().endsWith("@siyakhula.org")) {
+                startActivity(Intent(this, Admin::class.java))
                 finish()
-            } else if (documentSnapshot.getString("isUser") != null) {
-                // User is a normal user
-                startActivity(Intent(applicationContext, Dashboard::class.java))
+            } else if (isUser) {
+                startActivity(Intent(this, Dashboard::class.java))
                 finish()
+            } else {
+                Toast.makeText(this, "Invalid credentials or access level", Toast.LENGTH_SHORT).show()
             }
         }.addOnFailureListener { exception ->
             Toast.makeText(this, "Failed to fetch user data: ${exception.message}", Toast.LENGTH_SHORT).show()
@@ -90,9 +94,8 @@ class Login : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (fAuth.currentUser != null) {
-            // If user is already logged in, navigate to MainActivity
-            startActivity(Intent(applicationContext, Dashboard::class.java))
-            finish()
+            val uid = fAuth.currentUser?.uid ?: return
+            checkUserAccessLevel(uid)
         }
     }
 }

@@ -196,6 +196,7 @@
                 android:backgroundTint="#55AA55"
                 android:text="Donate"
                 android:padding="12dp"
+                android:onClick="DonateClick"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/donateTextContactPage" />
