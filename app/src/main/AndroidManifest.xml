@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Siyakhula"
         tools:targetApi="31">
         <activity
+            android:name=".AddProgram"
+            android:exported="false" />
+        <activity
+            android:name=".ProgramManagement"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:exported="true">
             <intent-filter>
@@ -21,16 +27,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".AdminDashboard" />
         <activity android:name=".Register" />
-        <activity android:name=".Dashboard"/>
-        <activity android:name=".Donations"/>
-        <activity android:name=".Upcoming_Programs"/>
-        <activity android:name=".AboutUs"/>
-        <activity android:name=".Contact_Us"/>
-        <activity android:name=".Volunteer"/>
-
+        <activity android:name=".Dashboard" />
+        <activity android:name=".Donations" />
+        <activity android:name=".Upcoming_Programs" />
+        <activity android:name=".AboutUs" />
+        <activity android:name=".Contact_Us" />
+        <activity android:name=".Volunteer" />
     </application>
 
 </manifest>
