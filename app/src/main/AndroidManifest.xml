@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Admin" />
+        <activity android:name=".AdminDashboard" />
         <activity android:name=".Register" />
         <activity android:name=".Dashboard"/>
         <activity android:name=".Donations"/>

@@ -41,19 +41,21 @@ class Login : AppCompatActivity() {
             if (valid) {
                 fAuth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
                     .addOnSuccessListener { authResult: AuthResult ->
-                        if (authResult.user?.isEmailVerified == true) {
-                            Toast.makeText(this, "Logged in successfully.", Toast.LENGTH_SHORT).show()
-                            checkUserAccessLevel(authResult.user?.uid ?: "")
-                        } else {
-                            Toast.makeText(this, "Please verify your email address before logging in.", Toast.LENGTH_SHORT).show()
-                            fAuth.signOut()
-                        }
+                        // Commenting out the email verification check to bypass it
+                        // if (authResult.user?.isEmailVerified == true) {
+                        Toast.makeText(this, "Logged in successfully.", Toast.LENGTH_SHORT).show()
+                        checkUserAccessLevel(authResult.user?.uid ?: "")
+                        // } else {
+                        //     Toast.makeText(this, "Please verify your email address before logging in.", Toast.LENGTH_SHORT).show()
+                        //     fAuth.signOut()
+                        // }
                     }
                     .addOnFailureListener { exception ->
                         Toast.makeText(this, "Login failed: ${exception.message}", Toast.LENGTH_SHORT).show()
                     }
             }
         }
+
 
         gotoRegister.setOnClickListener {
             startActivity(Intent(this, Register::class.java))
@@ -68,7 +70,7 @@ class Login : AppCompatActivity() {
             val isUser = documentSnapshot.get("isUser") as? Boolean ?: false
 
             if (isAdmin && email.text.toString().endsWith("@siyakhula.org")) {
-                startActivity(Intent(this, Admin::class.java))
+                startActivity(Intent(this, AdminDashboard::class.java))
                 finish()
             } else if (isUser) {
                 startActivity(Intent(this, Dashboard::class.java))
