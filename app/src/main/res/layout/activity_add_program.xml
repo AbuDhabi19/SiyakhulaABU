@@ -54,7 +54,7 @@
         android:background="@drawable/rounded_edittext"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:padding="10dp" />
+        android:padding="12dp" />
 
     <Button
         android:id="@+id/AddProgramBTN"
