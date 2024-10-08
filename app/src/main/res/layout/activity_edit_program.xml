@@ -42,7 +42,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/edited_program_name"
+        android:id="@+id/et_program_name"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:textSize="20sp"
@@ -54,7 +54,7 @@
         android:padding="10dp" />
 
     <Button
-        android:id="@+id/editProgramBTN"
+        android:id="@+id/btn_update_program"
         android:layout_width="133dp"
         android:layout_height="53dp"
         android:layout_marginLeft="130dp"

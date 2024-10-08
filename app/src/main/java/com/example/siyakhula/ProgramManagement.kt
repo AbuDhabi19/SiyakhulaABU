@@ -23,9 +23,6 @@ class ProgramManagement : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_program_management)
 
-        // Initialize RecyclerView
-//        recyclerView = findViewById(R.id.recycler_view_programs)
-//        recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Initialize RecyclerView with GridLayoutManager
                 recyclerView = findViewById(R.id.recycler_view_programs)
@@ -72,16 +69,11 @@ class ProgramManagement : AppCompatActivity() {
     }
 
     private fun editProgram(program: Program) {
-        // Logic to handle editing a program (open another activity or dialog)
+        val intent = Intent(this, EditProgram::class.java)
+        intent.putExtra("program", program)
+        startActivity(intent)
     }
 
-//    private fun deleteProgram(program: Program) {
-//        db.collection("programs").document(program.id).delete().addOnSuccessListener {
-//            programsList.remove(program)
-//            programAdapter.notifyDataSetChanged()
-//            Toast.makeText(this, "Program deleted", Toast.LENGTH_SHORT).show()
-//        }
-//    }
 private fun deleteProgram(program: Program) {
     val builder = AlertDialog.Builder(this)
     builder.setTitle("Delete Program")
