@@ -22,6 +22,15 @@
             android:name=".ProgramManagement"
             android:exported="false" />
         <activity
+            android:name=".EditUser"
+            android:exported="false" />
+        <activity
+            android:name=".AddUser"
+            android:exported="false" />
+        <activity
+            android:name=".ManageUsers"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:exported="true">
             <intent-filter>
