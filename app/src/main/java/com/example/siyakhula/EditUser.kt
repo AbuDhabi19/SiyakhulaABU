@@ -33,18 +33,20 @@ class EditUser : AppCompatActivity() {
 
         updateButton.setOnClickListener {
             val updatedName = userNameEditText.text.toString()
-            if (updatedName.isNotEmpty()) {
-                updateUserInFirestore(updatedName)
+            val updatedEmail = userEmailEditText.text.toString()
+
+            if (updatedName.isNotEmpty() && updatedEmail.isNotEmpty()) {
+                updateUserInFirestore(updatedName, updatedEmail)
                 startActivity(Intent(this, ManageUsers::class.java)) // Navigate back to ManageUsers
             } else {
-                Toast.makeText(this, "User name cannot be empty", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "User name and email cannot be empty", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun updateUserInFirestore(updatedName: String) {
+    private fun updateUserInFirestore(updatedName: String, updatedEmail: String) {
         val userRef = db.collection("Users").document(user.id)
-        userRef.update("name", updatedName)
+        userRef.update("name", updatedName, "email", updatedEmail)
             .addOnSuccessListener {
                 Toast.makeText(this, "User updated successfully", Toast.LENGTH_SHORT).show()
                 finish() // Close the activity and return to the previous one
