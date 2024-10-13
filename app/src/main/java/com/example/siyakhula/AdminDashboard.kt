@@ -11,7 +11,6 @@ class AdminDashboard : AppCompatActivity() {
 
     private lateinit var manageUsersButton: Button
     private lateinit var programManagementButton: Button
-    private lateinit var donationManagementButton: Button
     private lateinit var volunteerManagementButton: Button
     private lateinit var adminSignoutButton: Button
 
@@ -23,7 +22,6 @@ class AdminDashboard : AppCompatActivity() {
         // Initializing buttons
         manageUsersButton = findViewById(R.id.manageUsersButton)
         programManagementButton = findViewById(R.id.ProgramMangementButton)
-        donationManagementButton = findViewById(R.id.DonationManagementButton)
         volunteerManagementButton = findViewById(R.id.VolunteerManagementButton)
         adminSignoutButton = findViewById(R.id.adminSignoutButton)
 
@@ -34,10 +32,6 @@ class AdminDashboard : AppCompatActivity() {
 
         programManagementButton.setOnClickListener {
             startActivity(Intent(this, ProgramManagement::class.java))
-        }
-
-        donationManagementButton.setOnClickListener {
-            startActivity(Intent(this, DonationManagement::class.java))
         }
 
         volunteerManagementButton.setOnClickListener {
