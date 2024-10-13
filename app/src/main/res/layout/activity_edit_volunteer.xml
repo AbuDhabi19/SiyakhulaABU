@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProgramManagement"
+    tools:context=".AddUser"
     android:orientation="vertical">
 
     <ImageView
@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:text="Project Management"
+            android:text="Edit Volunteer"
             android:textAlignment="center"
             android:layout_marginLeft="55dp"
             android:textSize="26sp"
@@ -37,7 +37,7 @@
             android:layout_height="53dp"
             android:backgroundTint="#55AA55"
             android:onClick="returnClick"
-            android:layout_marginLeft="3dp"
+            android:layout_marginStart="3dp"
             android:text="X"
             android:textAlignment="textEnd"
             tools:ignore="MissingConstraints"
@@ -45,36 +45,28 @@
             tools:layout_editor_absoluteY="154dp" />
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/firstNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Name" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/phoneNumberEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number" />
+
     <Button
-        android:id="@+id/AddProgramBTN"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
-        android:layout_height="53dp"
-        android:layout_marginLeft="130dp"
-        android:backgroundTint="#55AA55"
-        android:onClick="AddProgBTNClick"
-        android:text="Add Program"
-        android:textAlignment="textEnd"
-        tools:ignore="MissingConstraints" />
-
-
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recycler_view_programs"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content" />-->
-    <TextView
-        android:id="@+id/tv_program_header"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#55AA55"
-        android:padding="8dp"
-        android:text="Program Name"
-        android:textColor="@color/white"
-        android:textStyle="bold" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_programs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-
+        android:text="Save"
+        android:layout_gravity="end" />
 </LinearLayout>
