@@ -15,7 +15,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class Register : AppCompatActivity() {
 
     // Declare UI elements
-    private lateinit var name: EditText // Declare EditText for name
     private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var registerBtn: Button
@@ -34,7 +33,6 @@ class Register : AppCompatActivity() {
         setContentView(R.layout.activity_register) // Set the layout for this activity
 
         // Initialize the UI elements by binding them to corresponding views in the layout
-        name = findViewById(R.id.registerName) // Bind name EditText
         email = findViewById(R.id.registerEmail)
         password = findViewById(R.id.registerPassword)
         registerBtn = findViewById(R.id.registerBtn)
@@ -46,14 +44,13 @@ class Register : AppCompatActivity() {
 
         // Set click listener for the Register button
         registerBtn.setOnClickListener {
-            // Check if the name, email, and password fields are filled
-            checkField(name)
+            // Check if the email and password fields are filled
             checkField(email)
             checkField(password)
 
-            // If all fields are valid, proceed with registration
+            // If both fields are valid, proceed with registration
             if (valid) {
-                registerUser(name.text.toString(), email.text.toString(), password.text.toString())
+                registerUser(email.text.toString(), password.text.toString())
             }
         }
 
@@ -77,26 +74,28 @@ class Register : AppCompatActivity() {
     }
 
     // Function to register a user based on email domain
-    private fun registerUser(name: String, email: String, password: String) {
+    private fun registerUser(email: String, password: String) {
         // If the email ends with "@siyakhula.org", register the user as an admin
         if (email.endsWith("@siyakhula.org")) {
-            createUser(name, email, password, isAdmin = true)
+            createUser(email, password, isAdmin = true)
         } else {
             // Otherwise, register the user as a normal user
-            createUser(name, email, password, isAdmin = false)
+            createUser(email, password, isAdmin = false)
         }
     }
 
     // Function to create a new user in Firebase Authentication and store user data in Firestore
-    private fun createUser(name: String, email: String, password: String, isAdmin: Boolean) {
+    private fun createUser(email: String, password: String, isAdmin: Boolean) {
         // Create a user with the provided email and password
         fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val user = fAuth.currentUser
 
+                // Completely remove email verification step
+                // No sendEmailVerification() call is present
+
                 // Create a map with user data to store in Firestore
                 val userData = hashMapOf(
-                    "name" to name,  // Store the user's name
                     "email" to email,  // Store email
                     // Store user role (admin or normal user)
                     if (isAdmin) "isAdmin" to true else "isUser" to true
