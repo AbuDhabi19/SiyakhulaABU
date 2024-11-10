@@ -12,15 +12,14 @@
 
     <ImageView
         android:id="@+id/bannerImage"
-        android:layout_width="413dp"
+        android:layout_width="399dp"
         android:layout_height="126dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:background="#77DD77"
         android:contentDescription="@string/banner_image_description"
         android:scaleType="centerCrop"
         android:src="@drawable/siyakhulabanner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="VisualLintBounds" />

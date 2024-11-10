@@ -12,7 +12,7 @@
         android:id="@+id/iv_Banner"
         android:layout_width="match_parent"
         android:layout_height="138dp"
-        app:srcCompat="@drawable/header"
+        android:src="@drawable/siyakhulabanner"
         tools:ignore="MissingConstraints"
         android:layout_marginBottom="20dp"
         />

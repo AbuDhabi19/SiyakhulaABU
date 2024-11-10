@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/siyakhulabanner"
-        android:layout_width="423dp"
+        android:layout_width="400dp"
         android:layout_height="196dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="0dp"
