@@ -40,21 +40,22 @@ class Login : AppCompatActivity() {
 
             if (valid) {
                 fAuth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
-                    .addOnSuccessListener { authResult: AuthResult ->
-                        // Commenting out the email verification check to bypass it
-                        // if (authResult.user?.isEmailVerified == true) {
-                        Toast.makeText(this, "Logged in successfully.", Toast.LENGTH_SHORT).show()
-                        checkUserAccessLevel(authResult.user?.uid ?: "")
-                        // } else {
-                        //     Toast.makeText(this, "Please verify your email address before logging in.", Toast.LENGTH_SHORT).show()
-                        //     fAuth.signOut()
-                        // }
+                    .addOnSuccessListener { authResult ->
+                        // Check if email is verified
+                        if (authResult.user?.isEmailVerified == true) {
+                            Toast.makeText(this, "Logged in successfully.", Toast.LENGTH_SHORT).show()
+                            checkUserAccessLevel(authResult.user?.uid ?: "")
+                        } else {
+                            Toast.makeText(this, "Please verify your email before logging in.", Toast.LENGTH_SHORT).show()
+                            fAuth.signOut()
+                        }
                     }
                     .addOnFailureListener { exception ->
                         Toast.makeText(this, "Login failed: ${exception.message}", Toast.LENGTH_SHORT).show()
                     }
             }
         }
+
 
 
         gotoRegister.setOnClickListener {

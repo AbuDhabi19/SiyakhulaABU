@@ -86,37 +86,49 @@ class Register : AppCompatActivity() {
 
     // Function to create a new user in Firebase Authentication and store user data in Firestore
     private fun createUser(email: String, password: String, isAdmin: Boolean) {
-        // Create a user with the provided email and password
         fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val user = fAuth.currentUser
 
-                // Completely remove email verification step
-                // No sendEmailVerification() call is present
+                // Send email verification link
+                user?.sendEmailVerification()?.addOnCompleteListener { verifyTask ->
+                    if (verifyTask.isSuccessful) {
+                        Toast.makeText(
+                            this,
+                            "Verification email sent to $email",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
-                // Create a map with user data to store in Firestore
-                val userData = hashMapOf(
-                    "email" to email,  // Store email
-                    // Store user role (admin or normal user)
-                    if (isAdmin) "isAdmin" to true else "isUser" to true
-                )
+                        // Store user data in Firestore
+                        val userData = hashMapOf(
+                            "email" to email,
+                            if (isAdmin) "isAdmin" to true else "isUser" to true
+                        )
 
-                // Save the user data in the "Users" collection in Firestore, using the user's UID as the document ID
-                fStore.collection("Users").document(user?.uid!!).set(userData).addOnSuccessListener {
-                    Log.d("TAG", "User data saved") // Log a success message
-                    // Sign out the user after registration (optional)
-                    FirebaseAuth.getInstance().signOut()
-
-                    // Redirect the user to the login activity
-                    startActivity(Intent(this, Login::class.java))
-                    finish()
-                }.addOnFailureListener { e ->
-                    // Log an error message if user data could not be saved in Firestore
-                    Log.e("TAG", "Error saving user data", e)
+                        fStore.collection("Users").document(user.uid).set(userData)
+                            .addOnSuccessListener {
+                                Log.d("TAG", "User data saved")
+                                // Sign out the user to prevent login without verification
+                                FirebaseAuth.getInstance().signOut()
+                                startActivity(Intent(this, Login::class.java))
+                                finish()
+                            }.addOnFailureListener { e ->
+                            Log.e("TAG", "Error saving user data", e)
+                        }
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "Failed to send verification email.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             } else {
-                // If registration fails, show an error message
-                Toast.makeText(this, "Registration failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Registration failed: ${task.exception?.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
